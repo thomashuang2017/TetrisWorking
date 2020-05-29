@@ -1,0 +1,97 @@
+
+
+A6.001
+   001.A. 新建 TetrisPanel.java
+   001.B. 新建 Shapes.java
+          shapes 改為 static 並移入 class Shapes
+   001.C. 新建 Map.java
+          map 改為 static 並移入 class Map
+   001.D. 整理 Shapes.java
+   存檔 A60309_2304.rar
+   ------------------------------
+A6.002
+   002.A. 將Image b1,b2 color 改為static 移至Map.java 
+   002.B. 在Map.java新建static colorInit()
+   002.C. 將TerisPanel 的 nonstatic field 添加this.
+          並且Tetris.x0 改名為 spaceX0、spaceY0、
+	  新增 final 變數 holdX0、holdY0
+   002.D. 將TerisPanel.java 的g.drawImage整理成在
+	  Map.java 的物件方法paintCell、paintBgCell 
+   存檔 A603012_2304.rar
+   ------------------------------
+A6.003 
+   003.A. TetrisPanel.spaceX0 及 spaceY0 改為 static 
+   003.B. 新增 Map.paintBgCell(Graphics g, int i, int j)
+	  以此簡化TetrisPanel.paintComponent($)
+   003.C. Inline掉paintCell(Graphics g, int bt, int x, int y),
+                  paintBgCell(Graphics g, Image b, int x, int y)
+   003.D. 新增 final 變數 nextX0、nextY0
+   003.E. 新增 Map.paintMap(Graphics g)
+          以此簡化TetrisPanel.paintComponent($)
+   003.F. 新增 Shapes.paintPiece( 
+                  Graphics g, int baseX, int baseY, 
+                  int blockType, int turnState, int posX, int posY 
+               )
+          以此簡化TetrisPanel.paintComponent($)
+   存檔 A603016_2140.rar
+   ------------------------------
+A6.004
+   004.A. TetrisPanel.blockType 及 TetrisPanel.turnState 改為Shapes的static field
+   004.B. TetrisPanel.change 的型態改為 boolean
+   004.C. class Shapes 改名為 Piece
+   004.D. Piece.blockType 及 Piece.turnState 改成nonstatic
+   004.E. TetrisPanel中新增 movingPiece, holdPiece, nextPiece
+          刪除TetrisPanel.hold
+   004.F. Piece.paintPiece 刪除參數 blockType 及 turnState 並改為nonstatic
+   004.G. TetrisPanel.x, y 改為 Piece.x, y    
+   004.H. Piece.paintPiece 刪除參數 posX, posY 
+   004.I. 改良 TetrisPanel.r_shift()的邏輯
+		  改良 TetrisPanel.l_shift()的邏輯
+		  改良 TetrisPanel.down_shift()的邏輯
+   004.J. 刪除 TetrisPanel.gameOver的參數 
+   004.K. TetrisPanel.blow($$$$)改為nonstatic的Piece.blow()
+   存檔 A60317_0006.rar
+   ------------------------------
+A6.005
+   005.A. 整理TetrisPanel.delline() 並改為 static的 Map.updateMap()
+   005.B. TetrisPanel.initMap() 改為 static 的 Map.initMap()
+   005.C. 由TetrisPanel.down_shift() 中抽出 stopDown()
+   005.D. 改由 TetrisPanel.down_shift() 的呼叫者執行stopDown()
+   005.E. 改由 TetrisPanel.down_shift() 的呼叫者執行repaint() 
+   005.F. 改由 TetrisPanel.l_shift() 的呼叫者執行repaint()
+   005.G. 改由 TetrisPanel.r_shift() 的呼叫者執行repaint()
+   005.H. 改由 TetrisPanel.rotate() 的呼叫者執行repaint()
+   006.I. 由TetrisPanel.TimerListener.actionPerformed($)中抽出doClock()
+   007.J. 將 TetrisPanel.down_shift()、TetrisPanel.l_shift()、TetrisPanel.r_shift()、TetrisPanel.rotate() 
+          改成 Piece.down_shift()、Piece.l_shift()、Piece.r_shift()、Piece.rotate()          
+   存檔 A60321_1700.rar
+   ------------------------------
+A6.006
+   006.A. TetrisPanel.flag 改名為 notFalling 並改型態為 boolean
+   006.B. TetrisPanel.setBlock($$$$)中對notFalling的設值改由呼叫者處理
+   006.C. TetrisPanel.setBlock($$$$)移到Piece中,並改名為plugPiece
+   006.D. 更正 paintComponent($): this.nextPiece.paintPiece($$$)應該只做一次 
+   006.E. Piece.shapes 改為 private
+   006.F. newBlock() 改名為 newPiece()
+   006.G. gameOver()的函值型改為boolean
+   006.H. Piece.blow()改名為free()
+   006.I. 新增Piece.setPos00()、Piece.setPos40()
+   006.J. Piece.posX、posY、blockType、turnState、shapes改為private
+   006.K. 新增Piece.shapeI_0, ....
+   存檔 A60321_2045.rar
+   ------------------------------
+A6.007
+   007.A. Piece中i=0..15 轉 i%4 --> x, i/4 --> y
+          改為  x+y*4 --> i   >>>>
+   007.B. 新增 TetrisPanel.map 
+   007.C. Map中的函數改為nonstatic   
+   007.D. Map中的欄位改為nonstatic   
+   007.E. 新增Map.setCell($$$)、Map.indexOutside($$)、Map.cellEmpty($$)
+   007.F. Map.array2D 改為 private nonstatic
+   存檔 A60321_2200.rar
+   ------------------------------
+>>> 待查一開始畫面是白的
+
+
+
+
